@@ -19,6 +19,7 @@
             android:layout_height="600dp"
             android:ems="10"
             android:inputType="textMultiLine"
+            android:text="Cool Beans"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="0dp" />
 
