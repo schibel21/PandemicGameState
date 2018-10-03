@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
      *  -actionsLeft: int
      *  -infectionRate: int
      *  -outbreakNum: int
+     *  -curedDiseases: int[]
      *
      *
      ************************************/
@@ -61,6 +62,9 @@ public class MainActivity extends AppCompatActivity {
         int infectionRate = 2;
         int outbreakNum = 0;
         int actionsLeft = 4;
+        int[] curedDiseases = new int[] {0,0,0,0}; //1 = cured, 2 = eradicated
+
+
 
     }
 
