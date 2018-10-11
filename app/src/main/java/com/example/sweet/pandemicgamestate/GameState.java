@@ -57,6 +57,25 @@ public class GameState {
 
     }
 
+    //copy constructor
+    GameState(GameState otherState){
+        this.p1Cards = otherState.p1Cards;
+        this.p2Cards = otherState.p2Cards;
+        this.p1Role = otherState.p1Role;
+        this.p2Role = otherState.p2Role;
+        this.p1Pawn = otherState.p1Pawn;
+        this.p2Pawn = otherState.p2Pawn;
+        this.numPlayers = otherState.numPlayers;
+        this.playerTurn = otherState.playerTurn;
+        this.infectionRate = otherState.infectionRate;
+        this.outbreakNum = otherState.outbreakNum;
+        this.actionsLeft = otherState.actionsLeft;
+        this.curedDiseases = otherState.curedDiseases;
+        this.playerCity = otherState.playerCity;
+
+    }
+
+
 //empty action methods
 public boolean movePawn()
 {
