@@ -120,27 +120,27 @@ public class GameState {
         return true;
     }
 
-    public boolean increaseInfectionRate() {
+    public boolean increaseInfectionRate(int playersTurn) {
         return true;
     }
 
-    public boolean infect() {
+    public boolean infect(int playersTurn) {
         //normal, epidemic, outbreak
 
         return true;
     }
 
-    public boolean intensify() {
+    public boolean intensify(int playersTurn) {
         //reshuffling and adding
         return true;
     }
 
-    public boolean shareKnowledge() {
+    public boolean shareKnowledge(int playersTurn) {
         //normal, researcher
         return true;
     }
 
-    public boolean playEventCard() {
+    public boolean playEventCard(int playersTurn) {
         //if(role = contingencyPlanner){
             //do action with different requirements.
         //}
