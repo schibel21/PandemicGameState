@@ -40,7 +40,7 @@ public class GameState {
     int[] curedDiseases;
     String playerCity;
 
-    GameState(){
+    GameState() {
         p1Cards = null;
         p2Cards = null;
         p1Role = null;
@@ -52,13 +52,13 @@ public class GameState {
         infectionRate = 2;
         outbreakNum = 0;
         actionsLeft = 4;
-        curedDiseases = new int[] {0,0,0,0}; //1 = cured, 2 = eradicated
+        curedDiseases = new int[]{0, 0, 0, 0}; //1 = cured, 2 = eradicated
         playerCity = "New York"; //city that player is located at
 
     }
 
     //copy constructor
-    GameState(GameState otherState){
+    GameState(GameState otherState) {
         this.p1Cards = otherState.p1Cards;
         this.p2Cards = otherState.p2Cards;
         this.p1Role = otherState.p1Role;
@@ -76,70 +76,70 @@ public class GameState {
     }
 
 
-//empty action methods
-public boolean movePawn(int playerTurn)
-{
-    //drive, direct flight, charter flight, shuttle flight, dispatcher, operations expert
-    return true;
-}
-public boolean drawCard (int playersTurn, int infectionRate)
-{
-    return true;
-}
-public boolean discardCard (int playersTurn,  int infectionRate)
-{
-    return true;
-}
-public boolean buildAResearchStation (int playersTurn, String playerCity, GeneralCards gc, RoleCards rc)
-{
-    //normal, operations expert
-    return true;
-}
-public boolean treatDisease (int playersTurn, String playerCity, RoleCards rc)
-{
-    //normal, medic
-    return true;
-}
-public boolean discoverACure (int playersTurn, String playerCity, GeneralCards gc,RoleCards rc)
-{
-    //normal, scientist
-    return true;
-}
-public boolean increaseInfectionRate ()
-{
-    return true;
-}
-public boolean infect ()
-{
-    //normal, epidemic, outbreak
-    return true;
-}
-public boolean intensify ()
-{
-    //reshuffling and adding
-    return true;
-}
-public boolean shareKnowledge ()
-{
-    //normal, researcher
-    return true;
-}
-public boolean playEventCard()
-{
-    return true;
-}
-public boolean placeEventCardOnRoleCardFromDiscardPile ()
-{
-    //contingency planner only
-    return true;
-}
-public boolean removeCardFromGame ()
-{
-    //epidemic, contingency planner
-    return true;
+    //empty action methods
+    public boolean movePawn(int playerTurn) {
+        //drive, direct flight, charter flight, shuttle flight, dispatcher, operations expert
+        return true;
+    }
+
+    public boolean drawCard(int playersTurn, int infectionRate) {
+        return true;
+    }
+
+    public boolean discardCard(int playersTurn, int infectionRate) {
+        return true;
+    }
+
+    public boolean buildAResearchStation(int playersTurn, String playerCity, GeneralCards gc, RoleCards rc) {
+        //normal, operations expert
+        return true;
+    }
+
+    public boolean treatDisease(int playersTurn, String playerCity, RoleCards rc) {
+        //normal, medic
+        return true;
+    }
+
+    public boolean discoverACure(int playersTurn, String playerCity, GeneralCards gc, RoleCards rc) {
+        //normal, scientist
+        return true;
+    }
+
+    public boolean increaseInfectionRate() {
+        return true;
+    }
+
+    public boolean infect() {
+        //normal, epidemic, outbreak
+        return true;
+    }
+
+    public boolean intensify() {
+        //reshuffling and adding
+        return true;
+    }
+
+    public boolean shareKnowledge() {
+        //normal, researcher
+        return true;
+    }
+
+    public boolean playEventCard() {
+        //if(role = contingencyPlanner){
+            //do action with different requirements.
+        //}
+        return true;
+    }
 }
 
-    public int getNumPlayers() {
+
+/****************************************
+ * Commented out getters and setters.
+ * Not being used for now, but some
+ * methods will require these in
+ * later implementation.
+ ***************************************/
+/*public int getNumPlayers() {
         return numPlayers;
     }
 
@@ -242,7 +242,7 @@ public boolean removeCardFromGame ()
     public void setPlayerCity(String playerCity) {
         this.playerCity = playerCity;
     }
-}
+}*/
 
 
 

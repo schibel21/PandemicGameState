@@ -29,9 +29,7 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View Button) {
             edTe.setText(" "); //Clears edit text
             GameState firstInstance = new GameState();
-            GameState secondInstance = new GameState(firstInstance);
-
-
+            GameState secondInsatnce = new GameState(firstInstance);
 
         }
     }
