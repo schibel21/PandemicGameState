@@ -33,7 +33,11 @@ public class GameState {
     Pawn p1Pawn = null;
     Pawn p2Pawn = null;
     int numOfPlayers = 2;
-    String playerTurn = "player 1";
+
+    int player1 = 1;
+    int player2 = 2;
+
+    int playerTurn = 1;
     int infectionRate = 2;
     int outbreakNum = 0;
     int actionsLeft = 4;
