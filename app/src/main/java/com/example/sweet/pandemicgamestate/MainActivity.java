@@ -10,21 +10,25 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
+    EditText edTe = findViewById(R.id.editText);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         Button testButton = findViewById(R.id.runTestButton);
-        EditText edTe = findViewById(R.id.editText);
+            ButtonListener testListener = new ButtonListener();
+            testButton.setOnClickListener(testListener);
     }
 
 
 
     public class ButtonListener implements View.OnClickListener {
         public void onClick(View Button) {
-            //should clear edTe
-            GameState firstInstance = new GameState();
+            //Clears EditText
+            edTe.setText(" ");
+            GameState firstInstance = new GameState(); //Creates
 
         }
     }
