@@ -185,6 +185,44 @@ public class GameState {
         return true;
     }
 
+    //@Override
+    public void toString(GameState game)
+    {
+        System.out.print("\nPlayer 1 cards: " + game.p1Cards);
+        System.out.print("\nPlayer 2 cards: " + game.p2Cards);
+        System.out.print("\nPlayer 1 role: " + game.p1Role);
+        System.out.print("\nPlayer 2 role: " + game.p2Role);
+        System.out.print("\nPlayer 1 pawn: " + game.p1Pawn);
+        System.out.print("\nPlayer 2 pawn: " + game.p2Pawn);
+        System.out.print("\nNumber of players: " + game.numPlayers);
+        System.out.print("\nWhich player's turn it is: " + game.playerTurn);
+        System.out.print("\nThe infection rate is: " + game.infectionRate);
+        System.out.print("\nThe amount of outbreaks that have occurred: " + game.outbreakNum);
+        System.out.print("\nThe number of actions left: " + game.actionsLeft);
+
+        int curedCount = 0;
+        int eCount = 0;
+        int oCount = 0;
+        for(int i = 0; i < 4; i++)
+        {
+            if(game.curedDiseases[i] == 1) {
+                curedCount++;
+                System.out.print("\nNumber of cured diseases: " + curedCount);
+            }
+            else if (game.curedDiseases[i] == 2)
+            {
+                eCount++;
+                System.out.print("\nNumber of eradicated diseases: " + eCount);
+            }
+            else if(game.curedDiseases[i] == 0)
+            {
+                oCount++;
+                System.out.print("\nNumber of diseases that are still rampaging: " + oCount);
+            }
+        }
+
+        System.out.print("\nThe city that the current player is in: " + game.playerCity);
+        }
 
 
 /****************************************

@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
             edTe.append("Player 0 has played an event card.\n");
 
 
-
+            firstInstance.toString(firstInstance);
 
 
 
