@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
             firstInstance.drawInfectionCard(1,2);
             edTe.append("Player 1 has drawn 2 infection cards.\n");
 
-            firstInstance.infect();
+            firstInstance.infect(1);
             edTe.append("Player 1 has infected cities.\n");
 
             firstInstance.discardInfectionCard(1,2);
@@ -70,16 +70,16 @@ public class MainActivity extends AppCompatActivity {
             firstInstance.discoverACure(1, "New York", sampleCard, sampleRole);
             edTe.append("Player 1 has discovered a cure in New York.\n");
 
-            firstInstance.increaseInfectionRate();
+            firstInstance.increaseInfectionRate(1);
             edTe.append("Infection rate has been increased to 3.\n");
 
-            firstInstance.intensify();
+            firstInstance.intensify(1);
             edTe.append("The game has been intensified.\n");
 
-            firstInstance.shareKnowledge();
+            firstInstance.shareKnowledge(1);
             edTe.append("Knowledge has been shared with Player 0.\n");
 
-            firstInstance.playEventCard();
+            firstInstance.playEventCard(1);
             edTe.append("Player 0 has played an event card.\n");
 
 
