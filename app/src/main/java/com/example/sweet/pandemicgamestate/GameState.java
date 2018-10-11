@@ -52,7 +52,7 @@ public class GameState {
         infectionRate = 2;
         outbreakNum = 0;
         actionsLeft = 4;
-        curedDiseases = new int[]{0, 0, 0, 0}; //1 = cured, 2 = eradicated
+        curedDiseases = new int[] {0, 0, 0, 0}; //1 = cured, 2 = eradicated
         playerCity = "New York"; //city that player is located at
 
     }
