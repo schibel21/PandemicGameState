@@ -26,10 +26,13 @@ import com.example.sweet.pandemicgamestate.objectclasses.RoleCards;
  * player 1's turn.
  ************************************/
 public class GameState {
-    GeneralCards p1Cards;
-    GeneralCards p2Cards;
+    GeneralCards[] p1Cards;
+    GeneralCards[] p2Cards;
     RoleCards p1Role;
     RoleCards p2Role;
+    GeneralCards[] playerDeck;
+    GeneralCards[] infectionDeck;
+
     Pawn p1Pawn;
     Pawn p2Pawn;
     int numPlayers;
@@ -87,11 +90,18 @@ public class GameState {
         return true;
     }
 
-    public boolean drawCard(int playersTurn, int infectionRate) {
+    public boolean drawPlayerCard(int playersTurn, int numCards) {
+        return true;
+    }
+    public boolean drawInfectionCard(int playersTurn, int infectionRate) {
         return true;
     }
 
-    public boolean discardCard(int playersTurn, int infectionRate) {
+
+    public boolean discardPlayerCard(int playersTurn, int numCards) {
+        return true;
+    }
+    public boolean discardInfectionCard(int playersTurn, int infectionRate) {
         return true;
     }
 
@@ -116,6 +126,7 @@ public class GameState {
 
     public boolean infect() {
         //normal, epidemic, outbreak
+
         return true;
     }
 
