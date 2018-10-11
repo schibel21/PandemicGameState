@@ -40,7 +40,68 @@ public class GameState {
     int[] curedDiseases = new int[] {0,0,0,0}; //1 = cured, 2 = eradicated
 
 
-
+//empty action methods
+public boolean movePawn()
+{
+    //drive, direct flight, charter flight, shuttle flight, dispatcher, operations expert
+    return false;
+}
+public boolean drawCard (String playersTurn, int infectionRate)
+{
+    return false;
+}
+public boolean discardCard (String playersTurn,  int infectionRate)
+{
+    return false;
+}
+public boolean buildAResearchStation ()
+{
+    //normal, operations expert
+    return false;
+}
+public boolean treatDisease ()
+{
+    //normal, medic
+    return false;
+}
+public boolean discoverACure ()
+{
+    //normal, scientist
+    return false;
+}
+public boolean increaseInfectionRate ()
+{
+    return false;
+}
+public boolean infect ()
+{
+    //normal, epidemic, outbreak
+    return false;
+}
+public boolean intensify ()
+{
+    //reshuffling and adding
+    return false;
+}
+public boolean shareKnowledge ()
+{
+    //normal, researcher
+    return false;
+}
+public boolean playEventCard()
+{
+    return false;
+}
+public boolean placeEventCardOnRoleCardFromDiscardPile ()
+{
+    //contingency planner only
+    return false;
+}
+public boolean removeCardFromGame ()
+{
+    //epidemic, contingency planner
+    return false;
+}
 }
 
 
