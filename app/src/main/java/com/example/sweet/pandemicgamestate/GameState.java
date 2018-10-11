@@ -77,66 +77,66 @@ public class GameState {
 
 
 //empty action methods
-public boolean movePawn()
+public boolean movePawn(int playerTurn)
 {
     //drive, direct flight, charter flight, shuttle flight, dispatcher, operations expert
-    return false;
+    return true;
 }
 public boolean drawCard (int playersTurn, int infectionRate)
 {
-    return false;
+    return true;
 }
 public boolean discardCard (int playersTurn,  int infectionRate)
 {
-    return false;
+    return true;
 }
 public boolean buildAResearchStation (int playersTurn, String playerCity, GeneralCards gc, RoleCards rc)
 {
     //normal, operations expert
-    return false;
+    return true;
 }
 public boolean treatDisease (int playersTurn, String playerCity, RoleCards rc)
 {
     //normal, medic
-    return false;
+    return true;
 }
 public boolean discoverACure (int playersTurn, String playerCity, GeneralCards gc,RoleCards rc)
 {
     //normal, scientist
-    return false;
+    return true;
 }
 public boolean increaseInfectionRate ()
 {
-    return false;
+    return true;
 }
 public boolean infect ()
 {
     //normal, epidemic, outbreak
-    return false;
+    return true;
 }
 public boolean intensify ()
 {
     //reshuffling and adding
-    return false;
+    return true;
 }
 public boolean shareKnowledge ()
 {
     //normal, researcher
-    return false;
+    return true;
 }
 public boolean playEventCard()
 {
-    return false;
+    return true;
 }
 public boolean placeEventCardOnRoleCardFromDiscardPile ()
 {
     //contingency planner only
-    return false;
+    return true;
 }
 public boolean removeCardFromGame ()
 {
     //epidemic, contingency planner
-    return false;
+    return true;
 }
 
     public int getNumPlayers() {
