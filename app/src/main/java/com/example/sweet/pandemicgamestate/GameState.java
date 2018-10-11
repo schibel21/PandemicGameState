@@ -75,6 +75,11 @@ public class GameState {
 
     }
 
+    @Override
+    public String toString(){
+        String empty4now = "";
+        return empty4now;
+    }
 
     //empty action methods
     public boolean movePawn(int playerTurn) {
@@ -130,7 +135,7 @@ public class GameState {
         //}
         return true;
     }
-}
+
 
 
 /****************************************
@@ -241,20 +246,5 @@ public class GameState {
 
     public void setPlayerCity(String playerCity) {
         this.playerCity = playerCity;
-    }
-}*/
-
-
-
-
-/*
-//Dummied up toString method because it was
-//giving me issues lol. -K
-
-@Override
-public String toString(){
-    String gameSS = "";
-
-
-    return gameSS;
-}*/
+    }*/
+}
