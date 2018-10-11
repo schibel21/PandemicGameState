@@ -45,19 +45,19 @@ public class MainActivity extends AppCompatActivity {
             firstInstance.movePawn(0);
             edTe.append("Player 0 has moved their pawn.\n");
 
-            firstInstance.drawPlayerCard(0,2);                      //has error until Joanna pushes
+            firstInstance.drawPlayerCard(0,2);
             edTe.append("Player 0 has drawn 2 player cards.\n");
 
-            firstInstance.discardPlayerCard(0,1);                      //has error until Joanna pushes
+            firstInstance.discardPlayerCard(0,1);
             edTe.append("Player 0 had a full hand and discarded 1 card.\n");
 
-            firstInstance.drawInfectionCard(1,2);                      //has error until Joanna pushes
+            firstInstance.drawInfectionCard(1,2);
             edTe.append("Player 1 has drawn 2 infection cards.\n");
 
             firstInstance.infect();
             edTe.append("Player 1 has infected cities.\n");
 
-            firstInstance.discardInfectionCard(1,2);                      //has error until Joanna pushes
+            firstInstance.discardInfectionCard(1,2);
             edTe.append("Player 1 has discarded 2 infection cards.");
 
             firstInstance.buildAResearchStation(0, "New York",

@@ -93,10 +93,10 @@ public class GameState {
     public boolean drawPlayerCard(int playersTurn, int numCards) {
         return true;
     }
+
     public boolean drawInfectionCard(int playersTurn, int infectionRate) {
         return true;
     }
-
 
     public boolean discardPlayerCard(int playersTurn, int numCards) {
         return true;
