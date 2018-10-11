@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button testButton = findViewById(R.id.runTestButton);
         EditText edTe = findViewById(R.id.editText);
+
     }
 
 
