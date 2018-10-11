@@ -1,8 +1,16 @@
 package com.example.sweet.pandemicgamestate;
+/************************************
+ * @Kelsi
+ * @Johanna
+ * @Sarah
+ * @Polina
+************************************/
 
 /************************************
  * GAME STATE VARIABLES
  *  -Cards: card
+ *      -General Cards: card
+ *      -Role Cards: card
  *  -Pawns: pawn
  *  -numOfPlayers: int
  *  -playerTurn: String
@@ -10,6 +18,7 @@ package com.example.sweet.pandemicgamestate;
  *  -infectionRate: int
  *  -outbreakNum: int
  *  -curedDiseases: int[]
+ *  -playerCity: String
  *
  *
  ************************************/
