@@ -85,12 +85,19 @@ public class GameState {
     }
 
     //empty action methods
-    public boolean movePawn(int playerTurn) {
+    public boolean movePawn(int playerTurn, int actionsLeft) {
+        if(actionsLeft<=0){
+            return false;
+        }
         //drive, direct flight, charter flight, shuttle flight, dispatcher, operations expert
         return true;
     }
 
     public boolean drawPlayerCard(int playersTurn, int numCards) {
+        if(numCards>7){
+            return false;
+
+        }
         return true;
     }
 
@@ -98,25 +105,39 @@ public class GameState {
         return true;
     }
 
-    public boolean discardPlayerCard(int playersTurn, int numCards) {
+    public boolean discardPlayerCard(int playersTurn, int numCards, GeneralCards[] playerCards){
+        if(playerCards == null){
+            return false;
+        }
+
         return true;
     }
     public boolean discardInfectionCard(int playersTurn, int infectionRate) {
+
         return true;
     }
 
     public boolean buildAResearchStation(int playersTurn, String playerCity, GeneralCards gc, RoleCards rc) {
         //normal, operations expert
+        if(actionsLeft<=0){
+            return false;
+        }
         return true;
     }
 
     public boolean treatDisease(int playersTurn, String playerCity, RoleCards rc) {
         //normal, medic
+        if(actionsLeft<=0){
+            return false;
+        }
         return true;
     }
 
     public boolean discoverACure(int playersTurn, String playerCity, GeneralCards gc, RoleCards rc) {
         //normal, scientist
+        if(actionsLeft<=0){
+            return false;
+        }
         return true;
     }
 
@@ -126,7 +147,9 @@ public class GameState {
 
     public boolean infect(int playersTurn) {
         //normal, epidemic, outbreak
-
+        if(actionsLeft>0){
+            return false;
+        }
         return true;
     }
 
@@ -137,10 +160,16 @@ public class GameState {
 
     public boolean shareKnowledge(int playersTurn) {
         //normal, researcher
+        if(actionsLeft<=0){
+            return false;
+        }
         return true;
     }
 
     public boolean playEventCard(int playersTurn) {
+        if(actionsLeft<=0){
+            return false;
+        }
         //if(role = contingencyPlanner){
             //do action with different requirements.
         //}
