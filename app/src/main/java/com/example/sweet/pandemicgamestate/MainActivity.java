@@ -1,3 +1,9 @@
+/***********************
+ @Kelsi
+ @Joanna
+ @Polina
+ @Sarah
+************************/
 package com.example.sweet.pandemicgamestate;
 
 import android.support.v7.app.AppCompatActivity;
