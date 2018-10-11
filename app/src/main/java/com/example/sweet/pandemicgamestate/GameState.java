@@ -14,6 +14,10 @@ package com.example.sweet.pandemicgamestate;
  *
  ************************************/
 
+import com.example.sweet.pandemicgamestate.objectclasses.GeneralCards;
+import com.example.sweet.pandemicgamestate.objectclasses.Pawn;
+import com.example.sweet.pandemicgamestate.objectclasses.RoleCards;
+
 /************************************
  * GameState Constructor
  * Initializes a 2-player game
