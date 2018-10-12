@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             GameState secondInstance = new GameState(firstInstance);
 
             //Method call and print statements.
-            firstInstance.movePawn(0, firstInstance.actionsLeft);
+            firstInstance.movePawn(0, firstInstance.getActionsLeft());
             edTe.append("Player 0 has moved their pawn.\n");
 
             firstInstance.drawPlayerCard(0,2);

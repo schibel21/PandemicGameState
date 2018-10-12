@@ -1,7 +1,7 @@
 package com.example.sweet.pandemicgamestate;
 /************************************
  * @Kelsi
- * @Joanna
+ * @Johanna
  * @Sarah
  * @Polina
 ************************************/
@@ -55,9 +55,6 @@ public class GameState {
     int actionsLeft;
     int[] curedDiseases;
     String playerCity;
-    //Need list of cities/city class
-    //board class
-
 
     GameState() {
         p1Cards = null;
