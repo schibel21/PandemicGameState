@@ -47,6 +47,10 @@ public class MainActivity extends AppCompatActivity {
             //Creates a deep copy of firstInstance using copy constructor.
             GameState secondInstance = new GameState(firstInstance);
 
+            GameState thirdInstance = new GameState();
+
+            GameState fourthInstance = new GameState(thirdInstance);
+
             //Method call and print statements.
             firstInstance.movePawn(0, firstInstance.actionsLeft);
             edTe.append("Player 0 has moved their pawn.\n");
@@ -90,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
 
 
             firstInstance.toString(firstInstance);
+            firstInstance.toString(fourthInstance);
 
 
 
