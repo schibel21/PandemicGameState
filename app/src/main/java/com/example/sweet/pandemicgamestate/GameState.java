@@ -8,8 +8,8 @@ package com.example.sweet.pandemicgamestate;
 
 /************************************
  * GAME STATE VARIABLES
- *  -p1Cards: GeneralCards[]
- *  -p2Cards: GeneralCards[]
+ *  -p1Cards: GeneralCards
+ *  -p2Cards: GeneralCards
  *  -p1Pawn: Pawn
  *  -p2Pawn: Pawn
  *  -numPlayers: int
@@ -25,6 +25,8 @@ import com.example.sweet.pandemicgamestate.objectclasses.GeneralCards;
 import com.example.sweet.pandemicgamestate.objectclasses.Pawn;
 import com.example.sweet.pandemicgamestate.objectclasses.RoleCards;
 
+import java.util.ArrayList;
+
 /************************************
  * GameState Constructor
  * Initializes a 2-player game
@@ -33,12 +35,17 @@ import com.example.sweet.pandemicgamestate.objectclasses.RoleCards;
  * player 1's turn.
  ************************************/
 public class GameState {
-    GeneralCards[] p1Cards;
-    GeneralCards[] p2Cards;
+    /* NOTE: The cards a player has will be implemented as an array of general cards
+                in the actual game implementation, but are single GeneralCard objects for now
+                because the object class is empty and we don't have a "getCardName" function
+                implemented yet.
+     */
+    GeneralCards p1Cards;
+    GeneralCards p2Cards;
     RoleCards p1Role;
     RoleCards p2Role;
-    GeneralCards[] playerDeck;
-    GeneralCards[] infectionDeck;
+    ArrayList<GeneralCards> playerDeck = new ArrayList<>();
+    ArrayList<GeneralCards> infectionDeck = new ArrayList<>();
     Pawn p1Pawn;
     Pawn p2Pawn;
     int numPlayers;
@@ -84,11 +91,6 @@ public class GameState {
 
     }
 
-    @Override
-    public String toString(){
-        String empty4now = "";
-        return empty4now;
-    }
 
     //empty action methods
     public boolean movePawn(int playerTurn, int actionsLeft) {
@@ -111,7 +113,7 @@ public class GameState {
         return true;
     }
 
-    public boolean discardPlayerCard(int playersTurn, int numCards, GeneralCards[] playerCards){
+    public boolean discardPlayerCard(int playersTurn, int numCards, GeneralCards playerCards){
         if(playerCards == null){
             return false;
         }
@@ -182,45 +184,38 @@ public class GameState {
         return true;
     }
 
-    //@Override
-    public void toString(GameState game)
-    {
-        System.out.print("\nPlayer 1 cards: " + game.p1Cards);
-        System.out.print("\nPlayer 2 cards: " + game.p2Cards);
-        System.out.print("\nPlayer 1 role: " + game.p1Role);
-        System.out.print("\nPlayer 2 role: " + game.p2Role);
-        System.out.print("\nPlayer 1 pawn: " + game.p1Pawn);
-        System.out.print("\nPlayer 2 pawn: " + game.p2Pawn);
-        System.out.print("\nNumber of players: " + game.numPlayers);
-        System.out.print("\nWhich player's turn it is: " + game.playerTurn);
-        System.out.print("\nThe infection rate is: " + game.infectionRate);
-        System.out.print("\nThe amount of outbreaks that have occurred: " + game.outbreakNum);
-        System.out.print("\nThe number of actions left: " + game.actionsLeft);
+    @Override
+    public String toString() {
+        String fullString;
+
+        String p1String = "\nPlayer 1 cards: " + p1Cards + "\nPlayer 1 role: " + p1Role;
+        String p2String = "\nPlayer 2 cards: " + p2Cards + "\nPlayer 2 role: " + p2Role;
+        String gameInfo = "\nNumber of players: " + numPlayers + "\nWhich player's turn it is: "
+                + "\nThe infection rate is: " + infectionRate
+                + "\nThe amount of outbreaks that have occurred: " + outbreakNum
+                + "\nThe number of actions left: " + actionsLeft
+                + "\nThe city that the current player is in: " + playerCity;
 
         int curedCount = 0;
         int eCount = 0;
         int oCount = 0;
-        for(int i = 0; i < 4; i++)
-        {
-            if(game.curedDiseases[i] == 1) {
+        String diseaseInfo = "";
+        for (int i = 0; i < 4; i++) {
+            if (curedDiseases[i] == 1) {
                 curedCount++;
-                System.out.print("\nNumber of cured diseases: " + curedCount);
-            }
-            else if (game.curedDiseases[i] == 2)
-            {
+                diseaseInfo = "\nNumber of cured diseases: " + curedCount;
+            } else if (curedDiseases[i] == 2) {
                 eCount++;
-                System.out.print("\nNumber of eradicated diseases: " + eCount);
-            }
-            else if(game.curedDiseases[i] == 0)
-            {
+                diseaseInfo = diseaseInfo + "\nNumber of eradicated diseases: " + eCount;
+            } else if (curedDiseases[i] == 0) {
                 oCount++;
-                System.out.print("\nNumber of diseases that are still rampaging: " + oCount);
+                diseaseInfo = diseaseInfo + "\nNumber of diseases that are still rampaging: " + oCount;
             }
         }
 
-        System.out.print("\nThe city that the current player is in: " + game.playerCity);
-        }
-
+        fullString = p1String + p2String + gameInfo + diseaseInfo;
+        return fullString;
+    }
 
 /****************************************
  * Commented out getters and setters.

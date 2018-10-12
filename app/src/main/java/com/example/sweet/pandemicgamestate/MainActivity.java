@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
             firstInstance.drawPlayerCard(0,2);
             edTe.append("Player 0 has drawn 2 player cards.\n");
 
-            firstInstance.discardPlayerCard(0,1, firstInstance.p1Cards);
+            firstInstance.discardPlayerCard(0,1,sampleCard);
             edTe.append("Player 0 had a full hand and discarded 1 card.\n");
 
             firstInstance.drawInfectionCard(1,2);
