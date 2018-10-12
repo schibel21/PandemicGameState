@@ -40,21 +40,21 @@ public class GameState {
                 because the object class is empty and we don't have a "getCardName" function
                 implemented yet.
      */
-    GeneralCards p1Cards;
-    GeneralCards p2Cards;
-    RoleCards p1Role;
-    RoleCards p2Role;
-    ArrayList<GeneralCards> playerDeck = new ArrayList<>();
-    ArrayList<GeneralCards> infectionDeck = new ArrayList<>();
-    Pawn p1Pawn;
-    Pawn p2Pawn;
-    int numPlayers;
-    int playerTurn;
-    int infectionRate;
-    int outbreakNum;
-    int actionsLeft;
-    int[] curedDiseases;
-    String playerCity;
+    private GeneralCards p1Cards;
+    private GeneralCards p2Cards;
+    private RoleCards p1Role;
+    private RoleCards p2Role;
+    private ArrayList<GeneralCards> playerDeck = new ArrayList<>();
+    private ArrayList<GeneralCards> infectionDeck = new ArrayList<>();
+    private Pawn p1Pawn;
+    private Pawn p2Pawn;
+    private int numPlayers;
+    private int playerTurn;
+    private int infectionRate;
+    private int outbreakNum;
+    private int actionsLeft;
+    private int[] curedDiseases;
+    private String playerCity;
 
     GameState() {
         p1Cards = null;
@@ -223,7 +223,7 @@ public class GameState {
  * methods will require these in
  * later implementation.
  ***************************************/
-/*public int getNumPlayers() {
+public int getNumPlayers() {
         return numPlayers;
     }
 
@@ -325,5 +325,5 @@ public class GameState {
 
     public void setPlayerCity(String playerCity) {
         this.playerCity = playerCity;
-    }*/
+    }
 }
