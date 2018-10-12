@@ -19,7 +19,7 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText edTe = findViewById(R.id.editText);
+    EditText edTe;
     GeneralCards sampleCard = new GeneralCards();
     RoleCards sampleRole = new RoleCards();
 
@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        edTe = (EditText) findViewById(R.id.editText);
 
         Button testButton = findViewById(R.id.runTestButton);
             ButtonListener testListener = new ButtonListener();
@@ -47,10 +49,6 @@ public class MainActivity extends AppCompatActivity {
             //Creates a deep copy of firstInstance using copy constructor.
             GameState secondInstance = new GameState(firstInstance);
 
-            GameState thirdInstance = new GameState();
-
-            GameState fourthInstance = new GameState(thirdInstance);
-
             //Method call and print statements.
             firstInstance.movePawn(0, firstInstance.actionsLeft);
             edTe.append("Player 0 has moved their pawn.\n");
@@ -68,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
             edTe.append("Player 1 has infected cities.\n");
 
             firstInstance.discardInfectionCard(1,2);
-            edTe.append("Player 1 has discarded 2 infection cards.");
+            edTe.append("Player 1 has discarded 2 infection cards.\n");
 
             firstInstance.buildAResearchStation(0, "New York",
             sampleCard, sampleRole);
@@ -92,10 +90,15 @@ public class MainActivity extends AppCompatActivity {
             firstInstance.playEventCard(1);
             edTe.append("Player 0 has played an event card.\n");
 
+            //Creates a new instance of the game state class using default constructor.
+            GameState thirdInstance = new GameState();
 
-            firstInstance.toString(firstInstance);
-            fourthInstance.toString(fourthInstance);
+            //Creates a deep copy of thirdInstance using copy constructor.
+            GameState fourthInstance = new GameState(firstInstance);
 
+            //Call toString on second and fourth instance. Should produce identical results.
+            edTe.append("Second instance to string: " +secondInstance.toString() + "\n");
+            edTe.append("Fourth instance to string: " +fourthInstance.toString() + "\n");
 
 
         }

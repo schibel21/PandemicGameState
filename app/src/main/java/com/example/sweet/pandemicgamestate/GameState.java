@@ -8,19 +8,17 @@ package com.example.sweet.pandemicgamestate;
 
 /************************************
  * GAME STATE VARIABLES
- *  -Cards: card
- *      -General Cards: card
- *      -Role Cards: card
- *  -Pawns: pawn
- *  -numOfPlayers: int
+ *  -p1Cards: GeneralCards[]
+ *  -p2Cards: GeneralCards[]
+ *  -p1Pawn: Pawn
+ *  -p2Pawn: Pawn
+ *  -numPlayers: int
  *  -playerTurn: String
  *  -actionsLeft: int
  *  -infectionRate: int
  *  -outbreakNum: int
  *  -curedDiseases: int[]
  *  -playerCity: String
- *
- *
  ************************************/
 
 import com.example.sweet.pandemicgamestate.objectclasses.GeneralCards;
@@ -41,7 +39,6 @@ public class GameState {
     RoleCards p2Role;
     GeneralCards[] playerDeck;
     GeneralCards[] infectionDeck;
-
     Pawn p1Pawn;
     Pawn p2Pawn;
     int numPlayers;
