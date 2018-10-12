@@ -95,6 +95,7 @@ public class GameState {
     //empty action methods
     public boolean movePawn(int playerTurn, int actionsLeft) {
         if(actionsLeft<=0){
+
             return false;
         }
         //drive, direct flight, charter flight, shuttle flight, dispatcher, operations expert
@@ -218,10 +219,7 @@ public class GameState {
     }
 
 /****************************************
- * Commented out getters and setters.
- * Not being used for now, but some
- * methods will require these in
- * later implementation.
+ * Getters and setters.
  ***************************************/
 public int getNumPlayers() {
         return numPlayers;
