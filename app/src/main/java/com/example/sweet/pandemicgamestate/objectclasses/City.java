@@ -3,13 +3,15 @@ package com.example.sweet.pandemicgamestate.objectclasses;
 import java.util.ArrayList;
 
 public class City {
+    String name;
     ArrayList<DiseaseCube> diseaseCubes;
     ArrayList<String> adjacentCities;
     Boolean hasResearchLab;
     Boolean isVisited;
     int diseaseCubeCount;
 
-    public City(){
+    public City(String name){
+        this.name = name;
         diseaseCubes = new ArrayList<DiseaseCube>();
         adjacentCities = new ArrayList<String>();
         hasResearchLab = false;
@@ -21,5 +23,29 @@ public class City {
         diseaseCubes.add(cube);
         diseaseCubeCount++;
 
+    }
+
+    public ArrayList<DiseaseCube> getDiseaseCubes() {
+        return diseaseCubes;
+    }
+
+    public ArrayList<String> getAdjacentCities() {
+        return adjacentCities;
+    }
+
+    public Boolean getHasResearchLab() {
+        return hasResearchLab;
+    }
+
+    public Boolean getVisited() {
+        return isVisited;
+    }
+
+    public int getDiseaseCubeCount() {
+        return diseaseCubeCount;
+    }
+
+    public String getName() {
+        return name;
     }
 }
