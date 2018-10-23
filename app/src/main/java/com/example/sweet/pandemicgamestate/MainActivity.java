@@ -9,6 +9,8 @@ package com.example.sweet.pandemicgamestate;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,6 +39,41 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        getMenuInflater().inflate(R.menu.activity_menu, menu);
+        return true;
+    }
+    public boolean onOptionsItemSelected(MenuItem menuItem)
+    {
+        int itemID = menuItem.getItemId();
+        if(itemID == R.id.exitGameMenuItem)
+        {
+            //do action
+            //surfaceView.invalidate()
+            return true;
+        }
+        else if(itemID == R.id.restartMenuItem)
+        {
+            //do action
+            //surfaceView.invalidate()
+            return true;
+        }
+        else if(itemID == R.id.settings)
+        {
+            //do action
+            //surfaceView.invalidate()
+            return true;
+        }
+        else if (itemID == R.id.changeAIDifficulty)
+        {
+            //do action
+            //surfaceView.invalidate()
+            return true;
+        }
+        return false;
+    }
 
 
     public class ButtonListener implements View.OnClickListener {

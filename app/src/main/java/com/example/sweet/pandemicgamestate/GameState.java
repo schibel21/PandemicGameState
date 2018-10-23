@@ -69,7 +69,7 @@ public class GameState {
         outbreakNum = 0;
         actionsLeft = 4;
         curedDiseases = new int[] {0, 0, 0, 0}; //1 = cured, 2 = eradicated
-        playerCity = "New York"; //city that player is located at
+        playerCity = "New York "; //city that player is located at
 
     }
 
