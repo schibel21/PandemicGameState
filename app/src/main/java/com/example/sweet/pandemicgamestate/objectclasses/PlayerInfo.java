@@ -1,19 +1,23 @@
 package com.example.sweet.pandemicgamestate.objectclasses;
-<<<<<<< HEAD
 
-public class PlayerInfo {
-=======
 import java.util.ArrayList;
 
 public class PlayerInfo {
-    ArrayList<GeneralCards> playerCards;
-    String role;
-    String location;
 
-    public PlayerInfo(String location){
-        this.location = location;
+    private ArrayList<GeneralCards> playerCards;
+    private String role;
+    private String location;
+
+    public PlayerInfo() {
+
     }
 
 
->>>>>>> origin/master
+
+    public String playerLocation(String location){
+        this.location = location;
+        return location;
+    }
+
+
 }

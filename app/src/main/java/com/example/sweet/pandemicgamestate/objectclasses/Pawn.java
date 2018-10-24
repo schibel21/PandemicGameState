@@ -16,6 +16,7 @@ package com.example.sweet.pandemicgamestate.objectclasses;
 public class Pawn {
 
     private int pawnId;
+    private PlayerInfo thePlayer;
     public Pawn() {
         //
     }
