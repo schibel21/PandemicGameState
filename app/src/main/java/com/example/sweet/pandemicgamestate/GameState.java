@@ -111,7 +111,7 @@ public class GameState {
         return true;
     }
 
-    public boolean discardPlayerCard(int playersTurn, int numCards, GeneralCards playerCards){
+    public boolean discardPlayerCard(int playersTurn, int numCards, PlayerCard playerCards){
         if(playerCards == null){
             return false;
         }
@@ -123,7 +123,7 @@ public class GameState {
         return true;
     }
 
-    public boolean buildAResearchStation(int playersTurn, String playerCity, GeneralCards gc) {
+    public boolean buildAResearchStation(int playersTurn, String playerCity, PlayerCard gc) {
         //normal, operations expert
         if(actionsLeft<=0){
             return false;
