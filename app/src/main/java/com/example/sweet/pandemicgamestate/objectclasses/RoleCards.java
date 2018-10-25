@@ -1,4 +1,8 @@
 package com.example.sweet.pandemicgamestate.objectclasses;
 
-public class RoleCards {
+import java.util.ArrayList;
+
+public class RoleCards
+{
+
 }
