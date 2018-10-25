@@ -43,8 +43,8 @@ public class GameState {
                 because the object class is empty and we don't have a "getCardName" function
                 implemented yet.
      */
-    private PlayerCard p1Cards;
-    private PlayerCard p2Cards;
+    private ArrayList<PlayerCard> p1Cards;
+    private ArrayList<PlayerCard> p2Cards;
     private Hashtable<Integer,PlayerCard> playerDeck = new Hashtable<>();
     private Hashtable<Integer,InfectionCard> infectionDeck = new Hashtable<>();
     private Pawn p1Pawn;
@@ -74,13 +74,21 @@ public class GameState {
     //copy constructor
     GameState(GameState otherState) {
         this.p1Cards = otherState.p1Cards;
-        this.p2Cards = otherState.p2Cards;
+            for(int i = 0; i<otherState.p1Cards.size(); i++){
+                this.p1Cards.add(otherState.p1Cards.get(i));
+            }
+        for(int i = 0; i<otherState.p2Cards.size(); i++){
+            this.p2Cards.add(otherState.p2Cards.get(i));
+        }
         this.p1Pawn = otherState.p1Pawn;
         this.p2Pawn = otherState.p2Pawn;
         this.infectionRate = otherState.infectionRate;
         this.numPlayers = otherState.numPlayers;
         this.outbreakNum = otherState.outbreakNum;
-        this.curedDiseases = otherState.curedDiseases;
+        for(int i = 0; i<otherState.curedDiseases.length; i++){
+            this.curedDiseases[i]= otherState.curedDiseases[i];
+        }
+
 
     }
 

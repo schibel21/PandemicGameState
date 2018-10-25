@@ -16,7 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.sweet.pandemicgamestate.objectclasses.City;
-import com.example.sweet.pandemicgamestate.objectclasses.GeneralCards;
+//import com.example.sweet.pandemicgamestate.objectclasses.GeneralCards;
 
 //External citation:
 // https://images-cdn.zmangames.com/us-east-1/filer_public/25/12/251252dd-1338-4f78-b90d-afe073c72363/zm7101_pandemic_rules.pdf
