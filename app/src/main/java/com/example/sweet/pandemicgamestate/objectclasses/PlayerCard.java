@@ -1,6 +1,6 @@
 package com.example.sweet.pandemicgamestate.objectclasses;
 
-public class playerCard extends Card{
+public class PlayerCard extends Card{
 
     City location;
     int diseaseColor;
@@ -8,7 +8,7 @@ public class playerCard extends Card{
     boolean isEvent;
     boolean isEpidemic;
 
-    public playerCard(City city, int color, boolean isItEpidemic)
+    public PlayerCard(City city, int color, boolean isItEpidemic)
     {
         location = city;
         diseaseColor = color;
