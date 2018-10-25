@@ -1,6 +1,6 @@
 package com.example.sweet.pandemicgamestate.objectclasses;
 
-public class GeneralCards
+public class GeneralCards extends Card
 {
     City location;
     int diseaseColor;
