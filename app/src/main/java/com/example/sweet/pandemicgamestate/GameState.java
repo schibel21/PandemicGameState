@@ -1,7 +1,7 @@
 package com.example.sweet.pandemicgamestate;
 /************************************
  * @Kelsi
- * @Johanna
+ * @Joanna
  * @Sarah
  * @Polina
 ************************************/
@@ -95,7 +95,6 @@ public class GameState {
     //empty action methods
     public boolean movePawn(int playerTurn, int actionsLeft) {
         if(actionsLeft<=0){
-
             return false;
         }
         //drive, direct flight, charter flight, shuttle flight, dispatcher, operations expert
@@ -219,8 +218,9 @@ public class GameState {
     }
 
 /****************************************
- * Getters and setters.
+ * GETTERS & SETTERS
  ***************************************/
+
 public int getNumPlayers() {
         return numPlayers;
     }
