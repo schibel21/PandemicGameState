@@ -22,8 +22,9 @@ package com.example.sweet.pandemicgamestate;
  ************************************/
 
 import com.example.sweet.pandemicgamestate.objectclasses.City;
-import com.example.sweet.pandemicgamestate.objectclasses.GeneralCards;
+import com.example.sweet.pandemicgamestate.objectclasses.InfectionCard;
 import com.example.sweet.pandemicgamestate.objectclasses.Pawn;
+import com.example.sweet.pandemicgamestate.objectclasses.PlayerCard;
 import com.example.sweet.pandemicgamestate.objectclasses.PlayerInfo;
 
 import java.util.ArrayList;
@@ -42,10 +43,10 @@ public class GameState {
                 because the object class is empty and we don't have a "getCardName" function
                 implemented yet.
      */
-    private GeneralCards p1Cards;
-    private GeneralCards p2Cards;
-    private Hashtable<Integer,GeneralCards> playerDeck = new Hashtable<>();
-    private Hashtable<Integer,GeneralCards> infectionDeck = new Hashtable<>();
+    private PlayerCard p1Cards;
+    private PlayerCard p2Cards;
+    private Hashtable<Integer,PlayerCard> playerDeck = new Hashtable<>();
+    private Hashtable<Integer,InfectionCard> infectionDeck = new Hashtable<>();
     private Pawn p1Pawn;
     private Pawn p2Pawn;
     private int numPlayers;
@@ -138,7 +139,7 @@ public class GameState {
         return true;
     }
 
-    public boolean discoverACure(int playersTurn, String playerCity, GeneralCards gc) {
+    public boolean discoverACure(int playersTurn, String playerCity, PlayerCard gc) {
         //normal, scientist
         if(actionsLeft<=0){
             return false;
@@ -222,11 +223,11 @@ public int getNumPlayers() {
         return numPlayers;
     }
 
-    public GeneralCards getP1Cards() {
+    public PlayerCard getP1Cards() {
         return p1Cards;
     }
 
-    public GeneralCards getP2Cards() {
+    public PlayerCard getP2Cards() {
         return p2Cards;
     }
 
@@ -266,7 +267,7 @@ public int getNumPlayers() {
         this.numPlayers = numPlayers;
     }
 
-    public void setP1Cards(GeneralCards p1Cards) {
+    public void setP1Cards(PlayerCard p1Cards) {
         this.p1Cards = p1Cards;
     }
 
@@ -274,7 +275,7 @@ public int getNumPlayers() {
         this.p1Pawn = p1Pawn;
     }
 
-    public void setP2Cards(GeneralCards p2Cards) {
+    public void setP2Cards(PlayerCard p2Cards) {
         this.p2Cards = p2Cards;
     }
 
