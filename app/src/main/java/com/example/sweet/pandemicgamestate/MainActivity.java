@@ -16,9 +16,6 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.sweet.pandemicgamestate.objectclasses.GeneralCards;
-import com.example.sweet.pandemicgamestate.objectclasses.RoleCards;
-
-import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 

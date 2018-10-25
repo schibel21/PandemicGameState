@@ -23,9 +23,10 @@ package com.example.sweet.pandemicgamestate;
 
 import com.example.sweet.pandemicgamestate.objectclasses.GeneralCards;
 import com.example.sweet.pandemicgamestate.objectclasses.Pawn;
-import com.example.sweet.pandemicgamestate.objectclasses.RoleCards;
+import com.example.sweet.pandemicgamestate.objectclasses.PlayerInfo;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 
 /************************************
  * GameState Constructor
@@ -42,10 +43,8 @@ public class GameState {
      */
     private GeneralCards p1Cards;
     private GeneralCards p2Cards;
-    private RoleCards p1Role;
-    private RoleCards p2Role;
-    private ArrayList<GeneralCards> playerDeck = new ArrayList<>();
-    private ArrayList<GeneralCards> infectionDeck = new ArrayList<>();
+    private Hashtable<Integer,GeneralCards> playerDeck = new Hashtable<>();
+    private Hashtable<Integer,GeneralCards> infectionDeck = new Hashtable<>();
     private Pawn p1Pawn;
     private Pawn p2Pawn;
     private int numPlayers;
@@ -55,12 +54,11 @@ public class GameState {
     private int actionsLeft;
     private int[] curedDiseases;
     private String playerCity;
+    private int dontpayattentiontothis;
 
     GameState() {
         p1Cards = null;
         p2Cards = null;
-        p1Role = null;
-        p2Role = null;
         p1Pawn = null;
         p2Pawn = null;
         numPlayers = 2;
@@ -77,8 +75,6 @@ public class GameState {
     GameState(GameState otherState) {
         this.p1Cards = otherState.p1Cards;
         this.p2Cards = otherState.p2Cards;
-        this.p1Role = otherState.p1Role;
-        this.p2Role = otherState.p2Role;
         this.p1Pawn = otherState.p1Pawn;
         this.p2Pawn = otherState.p2Pawn;
         this.numPlayers = otherState.numPlayers;
@@ -92,7 +88,6 @@ public class GameState {
     }
 
 
-    //empty action methods
     public boolean movePawn(int playerTurn, int actionsLeft) {
         if(actionsLeft<=0){
             return false;
@@ -125,7 +120,7 @@ public class GameState {
         return true;
     }
 
-    public boolean buildAResearchStation(int playersTurn, String playerCity, GeneralCards gc, RoleCards rc) {
+    public boolean buildAResearchStation(int playersTurn, String playerCity, GeneralCards gc, PlayerInfo player) {
         //normal, operations expert
         if(actionsLeft<=0){
             return false;
@@ -133,7 +128,7 @@ public class GameState {
         return true;
     }
 
-    public boolean treatDisease(int playersTurn, String playerCity, RoleCards rc) {
+    public boolean treatDisease(int playersTurn, String playerCity, PlayerInfo player) {
         //normal, medic
         if(actionsLeft<=0){
             return false;
@@ -141,7 +136,7 @@ public class GameState {
         return true;
     }
 
-    public boolean discoverACure(int playersTurn, String playerCity, GeneralCards gc, RoleCards rc) {
+    public boolean discoverACure(int playersTurn, String playerCity, GeneralCards gc, PlayerInfo player) {
         //normal, scientist
         if(actionsLeft<=0){
             return false;
@@ -253,7 +248,7 @@ public int getNumPlayers() {
         return p2Pawn;
     }
 
-    public RoleCards getP1Role() {
+    public PlayerInfo getP1Role() {
         return p1Role;
     }
 
@@ -285,7 +280,7 @@ public int getNumPlayers() {
         this.p1Pawn = p1Pawn;
     }
 
-    public void setP1Role(RoleCards p1Role) {
+    public void setP1Role(PlayerInfo player) {
         this.p1Role = p1Role;
     }
 
@@ -297,7 +292,7 @@ public int getNumPlayers() {
         this.p2Pawn = p2Pawn;
     }
 
-    public void setP2Role(RoleCards p2Role) {
+    public void setP2Role(PlayerInfo player) {
         this.p2Role = p2Role;
     }
 
