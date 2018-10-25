@@ -10,6 +10,7 @@ public class City {
     Boolean isVisited;
     int diseaseCubeCount;
 
+    //Default constructor
     public City(String name){
         this.name = name;
         diseaseCubes = new ArrayList<DiseaseCube>();
@@ -18,6 +19,19 @@ public class City {
         isVisited = false;
         diseaseCubeCount = 0;
     }
+
+    //Copy constructor
+    public City(City city){
+        this.name = city.name;
+        this.diseaseCubes = city.diseaseCubes;
+        this.adjacentCities = city.adjacentCities;
+        this.hasResearchLab = city.hasResearchLab;
+        this.isVisited = city.isVisited;
+        this.diseaseCubeCount = city.diseaseCubeCount;
+    }
+
+
+    //Adds new disease cube to array of disease cubes
     public void addDiseaseCube(String cubeColor){
         DiseaseCube cube = new DiseaseCube(cubeColor);
         diseaseCubes.add(cube);
@@ -25,6 +39,7 @@ public class City {
 
     }
 
+    //getters and setters for all variables
     public ArrayList<DiseaseCube> getDiseaseCubes() {
         return diseaseCubes;
     }
