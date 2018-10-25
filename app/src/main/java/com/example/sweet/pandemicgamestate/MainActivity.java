@@ -24,8 +24,15 @@ import com.example.sweet.pandemicgamestate.objectclasses.GeneralCards;
 public class MainActivity extends AppCompatActivity {
 
     EditText edTe;
-    City london = new City("London");
-    GeneralCards sampleCard = new GeneralCards(london, 0, false, false, false);
+    City london = new City("London", "paris", "madrid", "essen", 3);
+    City paris = new City("Paris", "London", "Milan", "Madrid", 2);
+    City madrid = new City("Madrid", "Paris", "London", "New York", 1);
+    City essen = new City("Essen", "London", "Paris", "Milan", 0);
+    City newYork = new City ("New York", "London", "Madrid", "Washington", 2);
+
+    GeneralCards card1 = new GeneralCards(london, 0, false, false, false);
+    GeneralCards card2 = new GeneralCards(paris, 0, false, false, false);
+    GeneralCards card3 = new GeneralCards(madrid, 0, false, false, false);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
             firstInstance.drawPlayerCard(0,2);
             edTe.append("Player 0 has drawn 2 player cards.\n");
 
-            firstInstance.discardPlayerCard(0,1,sampleCard);
+            firstInstance.discardPlayerCard(0,1,card1);
             edTe.append("Player 0 had a full hand and discarded 1 card.\n");
 
             firstInstance.drawInfectionCard(1,2);
@@ -111,13 +118,13 @@ public class MainActivity extends AppCompatActivity {
             edTe.append("Player 1 has discarded 2 infection cards.\n");
 
             firstInstance.buildAResearchStation(0, "New York",
-            sampleCard);
+            card1);
             edTe.append("Player 0 has built a research station in New York.\n");
 
             firstInstance.treatDisease(1, "New York");
             edTe.append("Player 1 has treated disease in New York.\n");
 
-            firstInstance.discoverACure(1, "New York", sampleCard);
+            firstInstance.discoverACure(1, "New York", card2);
             edTe.append("Player 1 has discovered a cure in New York.\n");
 
             firstInstance.increaseInfectionRate(1);

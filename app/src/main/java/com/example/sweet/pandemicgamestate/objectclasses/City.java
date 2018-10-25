@@ -11,13 +11,16 @@ public class City {
     int diseaseCubeCount;
 
     //Default constructor
-    public City(String name){
+    public City(String name, String name1, String name2, String name3, int count){
         this.name = name;
         diseaseCubes = new ArrayList<DiseaseCube>();
         adjacentCities = new ArrayList<String>();
+            adjacentCities.add(name1);
+            adjacentCities.add(name2);
+            adjacentCities.add(name3);
         hasResearchLab = false;
         isVisited = false;
-        diseaseCubeCount = 0;
+        diseaseCubeCount = count;
     }
 
     //Copy constructor
