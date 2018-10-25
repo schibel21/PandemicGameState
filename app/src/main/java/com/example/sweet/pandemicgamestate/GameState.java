@@ -78,9 +78,9 @@ public class GameState {
         this.p2Cards = otherState.p2Cards;
         this.p1Pawn = otherState.p1Pawn;
         this.p2Pawn = otherState.p2Pawn;
+        this.infectionRate = otherState.infectionRate;
         this.numPlayers = otherState.numPlayers;
         this.playerTurn = otherState.playerTurn;
-        this.infectionRate = otherState.infectionRate;
         this.outbreakNum = otherState.outbreakNum;
         this.actionsLeft = otherState.actionsLeft;
         this.curedDiseases = otherState.curedDiseases;

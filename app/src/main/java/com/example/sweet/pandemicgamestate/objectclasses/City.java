@@ -8,7 +8,7 @@ public class City {
     ArrayList<String> adjacentCities;
     Boolean hasResearchLab;
     Boolean isVisited;
-   
+
 
     //Default constructor
     public City(String name, String name1, String name2, String name3, int count){

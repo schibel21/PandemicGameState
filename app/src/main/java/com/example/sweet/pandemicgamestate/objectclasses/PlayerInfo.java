@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class PlayerInfo {
 
-    private ArrayList<GeneralCards> playerCards;
+    private ArrayList<PlayerCard> playerCards;
     private String role;
     private String location;
 
