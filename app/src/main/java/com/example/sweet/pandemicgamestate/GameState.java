@@ -64,12 +64,10 @@ public class GameState {
         p1Pawn = null;
         p2Pawn = null;
         numPlayers = 2;
-        playerTurn = 0;
         infectionRate = 2;
         outbreakNum = 0;
-        actionsLeft = 4;
         curedDiseases = new int[] {0, 0, 0, 0}; //1 = cured, 2 = eradicated
-        playerCity = "New York "; //city that player is located at
+
 
     }
 
@@ -81,25 +79,30 @@ public class GameState {
         this.p2Pawn = otherState.p2Pawn;
         this.infectionRate = otherState.infectionRate;
         this.numPlayers = otherState.numPlayers;
-        this.playerTurn = otherState.playerTurn;
         this.outbreakNum = otherState.outbreakNum;
-        this.actionsLeft = otherState.actionsLeft;
         this.curedDiseases = otherState.curedDiseases;
-        this.playerCity = otherState.playerCity;
 
     }
 
 
 
-    public boolean movePawn(int playerTurn, int actionsLeft) {
-        if(actionsLeft<=0){
+    public boolean movePawn(PlayerInfo player, City city, City desiredCity) {
+        if(player.getActionsLeft()<=0){
             return false;
         }
-        //drive
+        int count = city.getAdjacentCities().size();
+        while(count > 0)
+        {
+            if (desiredCity.equals(city.getAdjacentCities()))
+            {
+                player.setCurrentLocation(desiredCity);
+            }
+
+        }
         return true;
     }
 
-    public boolean drawPlayerCard(int playersTurn, int numCards) {
+    public boolean drawPlayerCard( PlayerInfo player, int numCards) {
         if(numCards>7){
             return false;
 
@@ -107,73 +110,75 @@ public class GameState {
         return true;
     }
 
-    public boolean drawInfectionCard(int playersTurn, int infectionRate) {
+    public boolean drawInfectionCard( PlayerInfo player, int infectionRate) {
         return true;
     }
 
-    public boolean discardPlayerCard(int playersTurn, int numCards, PlayerCard playerCards){
+    public boolean discardPlayerCard( PlayerInfo player, int numCards, PlayerCard playerCards){
         if(playerCards == null){
             return false;
         }
 
         return true;
     }
-    public boolean discardInfectionCard(int playersTurn, int infectionRate) {
+    public boolean discardInfectionCard( PlayerInfo player, int infectionRate) {
 
         return true;
     }
 
-    public boolean buildAResearchStation(int playersTurn, String playerCity, PlayerCard gc) {
+    public boolean buildAResearchStation( PlayerInfo player, City playerCity, PlayerCard gc) {
         //normal, operations expert
-        if(actionsLeft<=0){
+        if(player.getActionsLeft()<=0){
             return false;
         }
         return true;
     }
 
-    public boolean treatDisease(int playersTurn, String playerCity) {
+    public boolean treatDisease(PlayerInfo player, City city) {
         //normal, medic
-        if(actionsLeft<=0){
+        if(player.getActionsLeft()<=0){
             return false;
         }
+        city.removeDiseaseCube();
+        player.actionTaken();;
         return true;
     }
 
-    public boolean discoverACure(int playersTurn, String playerCity, PlayerCard gc) {
+    public boolean discoverACure(PlayerInfo player, City playerCity, PlayerCard gc) {
         //normal, scientist
-        if(actionsLeft<=0){
+        if(player.getActionsLeft()<=0){
             return false;
         }
         return true;
     }
 
-    public boolean increaseInfectionRate(int playersTurn) {
+    public boolean increaseInfectionRate( PlayerInfo player) {
         return true;
     }
 
-    public boolean infect(int playersTurn) {
+    public boolean infect(PlayerInfo player) {
         //normal, epidemic, outbreak
-        if(actionsLeft>0){
+        if(player.getActionsLeft()<=0){
             return false;
         }
         return true;
     }
 
-    public boolean intensify(int playersTurn) {
+    public boolean intensify( PlayerInfo player) {
         //reshuffling and adding
         return true;
     }
 
-    public boolean shareKnowledge(int playersTurn) {
+    public boolean shareKnowledge( PlayerInfo player) {
         //normal, researcher
-        if(actionsLeft<=0){
+        if(player.getActionsLeft()<=0){
             return false;
         }
         return true;
     }
 
-    public boolean playEventCard(int playersTurn) {
-        if(actionsLeft<=0){
+    public boolean playEventCard( PlayerInfo player) {
+        if(player.getActionsLeft()<=0){
             return false;
         }
         //if(role = contingencyPlanner){
@@ -191,8 +196,8 @@ public class GameState {
         String gameInfo = "\nNumber of players: " + numPlayers + "\nWhich player's turn it is: "
                 + "\nThe infection rate is: " + infectionRate
                 + "\nThe amount of outbreaks that have occurred: " + outbreakNum
-                + "\nThe number of actions left: " + actionsLeft
-                + "\nThe city that the current player is in: " + playerCity;
+                + "\nThe number of actions left: " + player.getActionsLeft()
+                + "\nThe city that the current player is in: " + player.getCurrentLocation();
 
         int curedCount = 0;
         int eCount = 0;
@@ -251,16 +256,8 @@ public int getNumPlayers() {
         return p2Pawn;
     }
 
-    public int getActionsLeft() {
-        return actionsLeft;
-    }
-
     public int[] getCuredDiseases() {
         return curedDiseases;
-    }
-
-    public String getPlayerCity() {
-        return playerCity;
     }
 
     public void setNumPlayers(int numPlayers) {
@@ -283,14 +280,6 @@ public int getNumPlayers() {
         this.p2Pawn = p2Pawn;
     }
 
-    public void setActionsLeft(int actionsLeft) {
-        this.actionsLeft = actionsLeft;
-    }
-
-    public void setPlayerTurn(int playerTurn) {
-        this.playerTurn = playerTurn;
-    }
-
     public void setCuredDiseases(int[] curedDiseases) {
         this.curedDiseases = curedDiseases;
     }
@@ -301,9 +290,5 @@ public int getNumPlayers() {
 
     public void setOutbreakNum(int outbreakNum) {
         this.outbreakNum = outbreakNum;
-    }
-
-    public void setPlayerCity(String playerCity) {
-        this.playerCity = playerCity;
     }
 }
