@@ -18,6 +18,9 @@ import android.widget.EditText;
 import com.example.sweet.pandemicgamestate.objectclasses.City;
 import com.example.sweet.pandemicgamestate.objectclasses.GeneralCards;
 
+//External citation:
+// https://images-cdn.zmangames.com/us-east-1/filer_public/25/12/251252dd-1338-4f78-b90d-afe073c72363/zm7101_pandemic_rules.pdf
+//Used for knowing the rules and layout of Pandemic, referenced throughout all code
 public class MainActivity extends AppCompatActivity {
 
     EditText edTe;
@@ -38,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    //External Citation:
+    //https://developer.android.com/guide/topics/ui/menus
+    //Referenced android documentation for how to create menus
     public boolean onCreateOptionsMenu(Menu menu)
     {
         getMenuInflater().inflate(R.menu.menu, menu);
@@ -73,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
-
+    
     public class ButtonListener implements View.OnClickListener {
         public void onClick(View Button) {
             //Clears edit text
