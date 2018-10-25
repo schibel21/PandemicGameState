@@ -55,6 +55,7 @@ public class GameState {
     private int[] curedDiseases;
     private String playerCity;
     private int dontpayattentiontothis;
+    private int dontpayattentiontothis2;
 
     GameState() {
         p1Cards = null;
