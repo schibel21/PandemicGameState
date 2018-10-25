@@ -21,6 +21,7 @@ package com.example.sweet.pandemicgamestate;
  *  -playerCity: String
  ************************************/
 
+import com.example.sweet.pandemicgamestate.objectclasses.City;
 import com.example.sweet.pandemicgamestate.objectclasses.GeneralCards;
 import com.example.sweet.pandemicgamestate.objectclasses.Pawn;
 import com.example.sweet.pandemicgamestate.objectclasses.PlayerInfo;
@@ -93,7 +94,7 @@ public class GameState {
         if(actionsLeft<=0){
             return false;
         }
-        //drive, direct flight, charter flight, shuttle flight, dispatcher, operations expert
+        //drive
         return true;
     }
 
