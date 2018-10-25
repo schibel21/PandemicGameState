@@ -15,13 +15,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.sweet.pandemicgamestate.objectclasses.City;
 import com.example.sweet.pandemicgamestate.objectclasses.GeneralCards;
 
 public class MainActivity extends AppCompatActivity {
 
     EditText edTe;
-    GeneralCards sampleCard = new GeneralCards();
-    RoleCards sampleRole = new RoleCards();
+    City london = new City("London");
+    GeneralCards sampleCard = new GeneralCards(london, 0, false, false, false);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,13 +105,13 @@ public class MainActivity extends AppCompatActivity {
             edTe.append("Player 1 has discarded 2 infection cards.\n");
 
             firstInstance.buildAResearchStation(0, "New York",
-            sampleCard, sampleRole);
+            sampleCard);
             edTe.append("Player 0 has built a research station in New York.\n");
 
-            firstInstance.treatDisease(1, "New York", sampleRole);
+            firstInstance.treatDisease(1, "New York");
             edTe.append("Player 1 has treated disease in New York.\n");
 
-            firstInstance.discoverACure(1, "New York", sampleCard, sampleRole);
+            firstInstance.discoverACure(1, "New York", sampleCard);
             edTe.append("Player 1 has discovered a cure in New York.\n");
 
             firstInstance.increaseInfectionRate(1);
@@ -132,6 +133,7 @@ public class MainActivity extends AppCompatActivity {
             GameState fourthInstance = new GameState(firstInstance);
 
             //Call toString on second and fourth instance. Should produce identical results.
+            edTe.append("First instance to string: " +firstInstance.toString() + "\n");
             edTe.append("Second instance to string: " +secondInstance.toString() + "\n");
             edTe.append("Fourth instance to string: " +fourthInstance.toString() + "\n");
 

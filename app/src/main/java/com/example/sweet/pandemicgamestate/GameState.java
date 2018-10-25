@@ -120,7 +120,7 @@ public class GameState {
         return true;
     }
 
-    public boolean buildAResearchStation(int playersTurn, String playerCity, GeneralCards gc, PlayerInfo player) {
+    public boolean buildAResearchStation(int playersTurn, String playerCity, GeneralCards gc) {
         //normal, operations expert
         if(actionsLeft<=0){
             return false;
@@ -128,7 +128,7 @@ public class GameState {
         return true;
     }
 
-    public boolean treatDisease(int playersTurn, String playerCity, PlayerInfo player) {
+    public boolean treatDisease(int playersTurn, String playerCity) {
         //normal, medic
         if(actionsLeft<=0){
             return false;
@@ -136,7 +136,7 @@ public class GameState {
         return true;
     }
 
-    public boolean discoverACure(int playersTurn, String playerCity, GeneralCards gc, PlayerInfo player) {
+    public boolean discoverACure(int playersTurn, String playerCity, GeneralCards gc) {
         //normal, scientist
         if(actionsLeft<=0){
             return false;
