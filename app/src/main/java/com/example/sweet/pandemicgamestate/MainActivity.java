@@ -16,7 +16,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.sweet.pandemicgamestate.objectclasses.City;
-import com.example.sweet.pandemicgamestate.objectclasses.GeneralCards;
+import com.example.sweet.pandemicgamestate.objectclasses.PlayerCard;
+import com.example.sweet.pandemicgamestate.objectclasses.PlayerInfo;
 
 //External citation:
 // https://images-cdn.zmangames.com/us-east-1/filer_public/25/12/251252dd-1338-4f78-b90d-afe073c72363/zm7101_pandemic_rules.pdf
@@ -30,9 +31,9 @@ public class MainActivity extends AppCompatActivity {
     City essen = new City("Essen", "London", "Paris", "Milan", 0);
     City newYork = new City ("New York", "London", "Madrid", "Washington", 2);
 
-    GeneralCards card1 = new GeneralCards(london, 0, false, false, false);
-    GeneralCards card2 = new GeneralCards(paris, 0, false, false, false);
-    GeneralCards card3 = new GeneralCards(madrid, 0, false, false, false);
+    PlayerCard card1 = new PlayerCard(london, 0, false);
+    PlayerCard card2 = new PlayerCard(paris, 0, false);
+    PlayerCard card3 = new PlayerCard(madrid, 0, false);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,49 +96,74 @@ public class MainActivity extends AppCompatActivity {
             //Creates a new instance of the game state class using default constructor
             GameState firstInstance = new GameState();
 
+            PlayerInfo player1 = new PlayerInfo(1, 0, newYork, card1, card2);
+            PlayerInfo player2 = new PlayerInfo(1, 0, essen, card1, card2);
+
             //Creates a deep copy of firstInstance using copy constructor.
             GameState secondInstance = new GameState(firstInstance);
 
             //Method call and print statements.
-            firstInstance.movePawn(0, firstInstance.getActionsLeft());
+            firstInstance.movePawn(player1, player1.getCurrentLocation(), london);
             edTe.append("Player 0 has moved their pawn.\n");
 
-            firstInstance.drawPlayerCard(0,2);
+            firstInstance.movePawn(player1, player1.getCurrentLocation(), essen);
+            edTe.append("Player 0 has moved their pawn.\n");
+
+            firstInstance.movePawn(player1, player1.getCurrentLocation(), paris);
+            edTe.append("Player 0 has moved their pawn.\n");
+
+            firstInstance.treatDisease(player1, player1.getCurrentLocation());
+            edTe.append("Player 0 has treated disease in New York.\n");
+
+            firstInstance.drawPlayerCard(player1,2);
             edTe.append("Player 0 has drawn 2 player cards.\n");
 
-            firstInstance.discardPlayerCard(0,1,card1);
+            firstInstance.discardPlayerCard(player1,1,card1);
             edTe.append("Player 0 had a full hand and discarded 1 card.\n");
 
-            firstInstance.drawInfectionCard(1,2);
-            edTe.append("Player 1 has drawn 2 infection cards.\n");
+            firstInstance.drawInfectionCard(player1,2);
+            edTe.append("Player 0 has drawn 2 infection cards.\n");
 
-            firstInstance.infect(1);
-            edTe.append("Player 1 has infected cities.\n");
+            firstInstance.infect(player1);
+            edTe.append("Player 0 has infected cities.\n");
 
-            firstInstance.discardInfectionCard(1,2);
-            edTe.append("Player 1 has discarded 2 infection cards.\n");
+            firstInstance.discardInfectionCard(player1,2);
+            edTe.append("Player 0 has discarded 2 infection cards.\n");
 
-            firstInstance.buildAResearchStation(0, "New York",
-            card1);
-            edTe.append("Player 0 has built a research station in New York.\n");
 
-            firstInstance.treatDisease(1, "New York");
+
+
+            edTe.append("It is now player 1's turn.\n");
+
+
+            secondInstance.movePawn(player2, player2.getCurrentLocation(), paris);
+            edTe.append("Player 1 has moved their pawn.\n");
+
+            secondInstance.movePawn(player2, player2.getCurrentLocation(), madrid);
+            edTe.append("Player 1 has moved their pawn.\n");
+
+            secondInstance.movePawn(player2, player2.getCurrentLocation(), newYork);
+            edTe.append("Player 1 has moved their pawn.\n");
+
+            secondInstance.treatDisease(player2, newYork);
             edTe.append("Player 1 has treated disease in New York.\n");
 
-            firstInstance.discoverACure(1, "New York", card2);
-            edTe.append("Player 1 has discovered a cure in New York.\n");
+            secondInstance.drawPlayerCard(player2,2);
+            edTe.append("Player 1 has drawn 2 player cards.\n");
 
-            firstInstance.increaseInfectionRate(1);
-            edTe.append("Infection rate has been increased to 3.\n");
+            secondInstance.discardPlayerCard(player2,1,card1);
+            edTe.append("Player 1 had a full hand and discarded 1 card.\n");
 
-            firstInstance.intensify(1);
-            edTe.append("The game has been intensified.\n");
+            secondInstance.drawInfectionCard(player2,2);
+            edTe.append("Player 1 has drawn 2 infection cards.\n");
 
-            firstInstance.shareKnowledge(1);
-            edTe.append("Knowledge has been shared with Player 0.\n");
+            secondInstance.infect(player2);
+            edTe.append("Player 1 has infected cities.\n");
 
-            firstInstance.playEventCard(1);
-            edTe.append("Player 0 has played an event card.\n");
+            secondInstance.discardInfectionCard(player2,2);
+            edTe.append("Player 1 has discarded 2 infection cards.\n");
+
+
 
             //Creates a new instance of the game state class using default constructor.
             GameState thirdInstance = new GameState();
