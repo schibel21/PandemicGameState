@@ -132,6 +132,7 @@ public class MainActivity extends AppCompatActivity {
             GameState fourthInstance = new GameState(firstInstance);
 
             //Call toString on second and fourth instance. Should produce identical results.
+            edTe.append("First instance to string: " +firstInstance.toString() + "\n");
             edTe.append("Second instance to string: " +secondInstance.toString() + "\n");
             edTe.append("Fourth instance to string: " +fourthInstance.toString() + "\n");
 
