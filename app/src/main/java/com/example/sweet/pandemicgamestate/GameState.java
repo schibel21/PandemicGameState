@@ -54,8 +54,7 @@ public class GameState {
     private int actionsLeft;
     private int[] curedDiseases;
     private String playerCity;
-    private int dontpayattentiontothis;
-    private int dontpayattentiontothis2;
+
 
     GameState() {
         p1Cards = null;
@@ -184,8 +183,8 @@ public class GameState {
     public String toString() {
         String fullString;
 
-        String p1String = "\nPlayer 1 cards: " + p1Cards + "\nPlayer 1 role: " + p1Role;
-        String p2String = "\nPlayer 2 cards: " + p2Cards + "\nPlayer 2 role: " + p2Role;
+        String p1String = "\nPlayer 1 cards: " + p1Cards + "\n";
+        String p2String = "\nPlayer 2 cards: " + p2Cards + "\n";
         String gameInfo = "\nNumber of players: " + numPlayers + "\nWhich player's turn it is: "
                 + "\nThe infection rate is: " + infectionRate
                 + "\nThe amount of outbreaks that have occurred: " + outbreakNum
@@ -249,14 +248,6 @@ public int getNumPlayers() {
         return p2Pawn;
     }
 
-    public PlayerInfo getP1Role() {
-        return p1Role;
-    }
-
-    public RoleCards getP2Role() {
-        return p2Role;
-    }
-
     public int getActionsLeft() {
         return actionsLeft;
     }
@@ -281,20 +272,12 @@ public int getNumPlayers() {
         this.p1Pawn = p1Pawn;
     }
 
-    public void setP1Role(PlayerInfo player) {
-        this.p1Role = p1Role;
-    }
-
     public void setP2Cards(GeneralCards p2Cards) {
         this.p2Cards = p2Cards;
     }
 
     public void setP2Pawn(Pawn p2Pawn) {
         this.p2Pawn = p2Pawn;
-    }
-
-    public void setP2Role(PlayerInfo player) {
-        this.p2Role = p2Role;
     }
 
     public void setActionsLeft(int actionsLeft) {
