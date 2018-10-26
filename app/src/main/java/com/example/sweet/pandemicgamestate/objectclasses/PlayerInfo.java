@@ -1,14 +1,29 @@
 package com.example.sweet.pandemicgamestate.objectclasses;
+/************************************
+ * @Kelsi
+ * @Joanna
+ * @Sarah
+ * @Polina
+ ************************************/
 
+/************************************
+ * Object class that creates the player info based upon variables:
+ * the cards the player currently has: playerHand
+ * the players role in the game: role
+ * the players current location on the board: currentLocation
+ * actions left in the players turn: actionsLeft
+ * the players number in the gameL playerNumber
+ *
+ ************************************/
 import java.util.ArrayList;
 
 public class PlayerInfo {
 
-        private ArrayList<PlayerCard> playerHand;
-        private int role;
-        private City currentLocation;
-        private int actionsLeft;
-        private int playerNumber;
+        protected ArrayList<PlayerCard> playerHand;
+        protected int role;
+        protected City currentLocation;
+        protected int actionsLeft;
+        protected int playerNumber;
 
         //default constructor
         public PlayerInfo(int playerNumber, int playerRole, int initActions, City startLoc, PlayerCard card1, PlayerCard card2) {
@@ -31,7 +46,7 @@ public class PlayerInfo {
         this.playerNumber = this.getPlayerNumber();
     }
 
-
+    //getters and setters for all variables
     public int getPlayerNumber() {
         return playerNumber;
     }
@@ -74,7 +89,7 @@ public class PlayerInfo {
             }
             return true;
         }
-
+    //Method set to set the number fo actions left in a players turn
     public void setActionsLeft(int actionsLeft) {
         this.actionsLeft = actionsLeft;
     }

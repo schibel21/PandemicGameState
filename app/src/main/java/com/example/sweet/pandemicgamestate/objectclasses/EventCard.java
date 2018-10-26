@@ -1,35 +1,34 @@
 package com.example.sweet.pandemicgamestate.objectclasses;
+/************************************
+ * @Kelsi
+ * @Joanna
+ * @Sarah
+ * @Polina
+ ************************************/
 
-/*
-Event: Resilient Population
-Remove any 1 card in the Infection Discard Pile from the Game
-You may play this between the Infect and Intensify steps of an epidemic [this bit is after you draw the bottom card, but before you shuffle and put them back on top]
-
-Event: One Quiet Night
-Skip the next Infect Cities step (Do not flip over any infection cards)
-
-Event: Forecast
-Draw, Look at, and Rearrange the top 6 cards of the Infection deck
-Put them back on top.
-
-Event: Government Grant
-Add 1 research station to any city (no city card needed)
-
-Event: Airlift
-Move any 1 pawn to any city
-Get permission first [I don't think we care right now
- */
+/******************************************************
+* Object class that creates the the pawn info
+ * that determines the pawns id and the role that they have
+ * based upon variables:
+ * knowing if the card drawn is an action card: isAction
+ * Remove any 1 card in the Infection Discard Pile from the Game
+ * You may play this between the Infect and Intensify steps of an epidemic : resilientPopulation
+* Skip the next Infect Cities step: quietNight
+* Draw, Look at, and Rearrange the top 6 cards of the Infection deck Put them back on top.: forecast
+ * Add 1 research station to any city (no city card needed): governmentGrant
+* Move any 1 pawn to any city: airlift
+ ****************************************************/
 
 public class EventCard extends Card
 {
-    boolean isAction;
-    boolean resilientPopulation;
-    boolean quietNight;
-    boolean forecast;
-    boolean governmentGrant;
-    boolean airlift;
+    protected boolean isAction;
+    protected boolean resilientPopulation;
+    protected boolean quietNight;
+    protected boolean forecast;
+    protected boolean governmentGrant;
+    protected boolean airlift;
 
-    //constructor
+    //Default constructor
     public EventCard(boolean isItAction, boolean isResilient, boolean isQuietNight, boolean isForecast, boolean isGovernment, boolean isAirlift)
     {
         isAction = isItAction;
@@ -51,6 +50,30 @@ public class EventCard extends Card
         this.governmentGrant = otherCard.governmentGrant;
         this.airlift = otherCard.airlift;
 
+    }
+    //getter for all the variables
+    public Boolean getisAction() {
+        return isAction;
+    }
+
+    public Boolean getresilientPopulation() {
+        return resilientPopulation;
+    }
+
+    public Boolean getquietNight() {
+        return quietNight;
+    }
+
+    public Boolean getforecast() {
+        return forecast;
+    }
+
+    public Boolean getGovernment() {
+        return governmentGrant;
+    }
+
+    public Boolean getairlift() {
+        return airlift;
     }
 
 }

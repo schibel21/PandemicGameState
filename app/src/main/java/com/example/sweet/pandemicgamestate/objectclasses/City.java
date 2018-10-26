@@ -1,13 +1,32 @@
 package com.example.sweet.pandemicgamestate.objectclasses;
+/************************************
+ * @Kelsi
+ * @Joanna
+ * @Sarah
+ * @Polina
+ ************************************/
+
+/************************************
+ * Object class that creates the city info that helps players determine
+ * what actions you can do based upon the city you're in
+ * based upon variables:
+ * the name for the city given: name
+ * how many disease cubes there are in a given city: diseaseCubes
+ * what cities are neighbors to the city specified: adjacentCities
+ * does the city have a research lab built there: hasResearchLab
+ * has the city already been visited: isVisited
+ *
+ ************************************/
 
 import java.util.ArrayList;
 
 public class City {
-    String name;
-    ArrayList<DiseaseCube> diseaseCubes;
-    ArrayList<String> adjacentCities;
-    Boolean hasResearchLab;
-    Boolean isVisited;
+
+    protected String name;
+    protected ArrayList<DiseaseCube> diseaseCubes;
+    protected ArrayList<String> adjacentCities;
+    protected Boolean hasResearchLab;
+    protected Boolean isVisited;
 
 
     //Default constructor
