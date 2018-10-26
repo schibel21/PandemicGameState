@@ -56,7 +56,6 @@ public class GameState {
     private Pawn p1Pawn;
     private Pawn p2Pawn;
     private int numPlayers;
-    private int playerTurn;
     private int infectionRate;
     private int outbreakNum;
     private int actionsLeft;
@@ -111,7 +110,7 @@ public class GameState {
 
     }
 
-
+    //PlayerInfo contains information on id of player who's turn it is
     //Moves player to a different city
     public boolean movePawn(PlayerInfo player, City city, City desiredCity) {
         if(player.getActionsLeft()<=0){
