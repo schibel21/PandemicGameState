@@ -4,8 +4,6 @@ public class PlayerCard extends Card{
 
     City location;
     int diseaseColor;
-    boolean infectionCard;
-    boolean isEvent;
     boolean isEpidemic;
 
     public PlayerCard(City city, int color, boolean isItEpidemic)
@@ -13,5 +11,11 @@ public class PlayerCard extends Card{
         location = city;
         diseaseColor = color;
         isEpidemic = isItEpidemic;
+
+    }
+    //copy constructor
+    public PlayerCard(PlayerCard playerCard)
+    {
+
     }
 }
