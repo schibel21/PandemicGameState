@@ -58,6 +58,7 @@ public class GameState {
     private int numPlayers;
     private int infectionRate;
     private int outbreakNum;
+    private int playerTurn;
     private int actionsLeft;
     private int[] curedDiseases;
     private String playerCity;
@@ -133,29 +134,34 @@ public class GameState {
         if(numCards>MAX_CARDS){
             return false;
         }
-        player.addCardToPlayerHand(p1Cards.get(0));
+        player.addCardToPlayerHand(playerDeck.get(0));
+        playerDeck.remove(0);
+
         return true;
     }
 
+    //draws card from infection deck
     public boolean drawInfectionCard( PlayerInfo player, int infectionRate) {
         this.infectionDeck.get(0);
-        this.infectionDeck.remove(0);
+        infectionDeck.remove(0);
         return true;
     }
 
+    //puts a player card in the player discard deck
     public boolean discardPlayerCard( PlayerInfo player, int numCards, PlayerCard playerCards){
         if(playerCards == null){
             return false;
         }
-        if(player.)
-
         return true;
     }
+
+    //removes a card from an infection deck and
     public boolean discardInfectionCard( PlayerInfo player, int infectionRate) {
-
+        this.infectionDeck.remove(0);
         return true;
     }
 
+    //Adds a research station to a specified city
     public boolean buildAResearchStation( PlayerInfo player, City playerCity, PlayerCard gc) {
         //normal, operations expert
         if(player.getActionsLeft()<=0){
@@ -165,6 +171,7 @@ public class GameState {
         return true;
     }
 
+    //removes disease cube(s) at a specified city
     public boolean treatDisease(PlayerInfo player, City city) {
         //normal, medic
         if(player.getActionsLeft()<=0){
@@ -175,15 +182,18 @@ public class GameState {
         return true;
     }
 
+    //Sets state of disease to cured
     public boolean discoverACure(PlayerInfo player, City playerCity, PlayerCard gc) {
         //normal, scientist
         if(player.getActionsLeft()<=0){
             return false;
         }
+        curedDiseases[0] = 1;
         player.setActionsLeft(player.getActionsLeft()-1);
         return true;
     }
 
+    //increases the infection rate
     public boolean increaseInfectionRate( PlayerInfo player) {
         if(getInfectionRate()<MAX_INFECTION_RATE) {
             setInfectionRate(getInfectionRate() + 1);
@@ -192,19 +202,23 @@ public class GameState {
        return false;
     }
 
+    //Adds disease cube(s) to a city
     public boolean infect(PlayerInfo player) {
         //normal, epidemic, outbreak
         if(player.getActionsLeft()<=0){
             return false;
         }
+        player.getCurrentLocation().addDiseaseCube("blue");
         return true;
     }
 
+    //reshuffles infection discard deck, adds back into infection deck
     public boolean intensify( PlayerInfo player) {
         //reshuffling and adding
         return true;
     }
 
+    //trades city card with another player
     public boolean shareKnowledge( PlayerInfo player) {
         //normal, researcher
         if(player.getActionsLeft()<=0){
@@ -214,6 +228,7 @@ public class GameState {
         return true;
     }
 
+    //Activates an event card
     public boolean playEventCard( PlayerInfo player) {
         if(player.getActionsLeft()<=0){
             return false;
