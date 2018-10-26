@@ -8,17 +8,36 @@ public class PlayerInfo {
         private int role;
         private City currentLocation;
         private int actionsLeft;
+        private int playerNumber;
 
-        public PlayerInfo(int playerRole, int initActions, City startLoc, PlayerCard card1, PlayerCard card2) {
-            role = playerRole;
-            actionsLeft = initActions;
-            currentLocation = startLoc;
-            playerHand.add(card1);
-            playerHand.add(card2);
+
+        public PlayerInfo(int playerNumber, int playerRole, int initActions, City startLoc, PlayerCard card1, PlayerCard card2) {
+            this.playerNumber = playerNumber;
+            this.role = playerRole;
+            this.actionsLeft = initActions;
+            this.currentLocation = startLoc;
+            this.playerHand.add(card1);
+            this.playerHand.add(card2);
 
         }
 
-        public int getRole(){
+    public int getPlayerNumber() {
+        return playerNumber;
+    }
+
+    public void setPlayerNumber(int playerNumber) {
+        this.playerNumber = playerNumber;
+    }
+
+    public ArrayList<PlayerCard> getPlayerHand() {
+        return playerHand;
+    }
+
+    public void setPlayerHand(ArrayList<PlayerCard> playerHand) {
+        this.playerHand = playerHand;
+    }
+
+    public int getRole(){
             return role;
         }
 
@@ -45,5 +64,7 @@ public class PlayerInfo {
             return true;
         }
 
-
+    public void setActionsLeft(int actionsLeft) {
+        this.actionsLeft = actionsLeft;
+    }
 }

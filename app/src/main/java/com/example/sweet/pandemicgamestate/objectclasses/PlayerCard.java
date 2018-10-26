@@ -16,6 +16,11 @@ public class PlayerCard extends Card{
     //copy constructor
     public PlayerCard(PlayerCard playerCard)
     {
+        this.location = new City(playerCard.location);
+        this.diseaseColor = playerCard.diseaseColor;
+        this.isEpidemic = playerCard.isEpidemic;
+
+
 
     }
 }

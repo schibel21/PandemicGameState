@@ -96,8 +96,11 @@ public class MainActivity extends AppCompatActivity {
             //Creates a new instance of the game state class using default constructor
             GameState firstInstance = new GameState();
 
-            PlayerInfo player1 = new PlayerInfo(1, 0, newYork, card1, card2);
-            PlayerInfo player2 = new PlayerInfo(1, 0, essen, card1, card2);
+
+            PlayerInfo player1 = new PlayerInfo(1, 1, 0, newYork, card1, card2);
+            PlayerInfo player2 = new PlayerInfo(2, 1, 0, essen, card1, card2);
+
+            firstInstance.setPlayer(player1);
 
             //Creates a deep copy of firstInstance using copy constructor.
             GameState secondInstance = new GameState(firstInstance);

@@ -29,6 +29,7 @@ public class EventCard extends Card
     boolean governmentGrant;
     boolean airlift;
 
+    //constructor
     public EventCard(boolean isItAction, boolean isResilient, boolean isQuietNight, boolean isForecast, boolean isGovernment, boolean isAirlift)
     {
         isAction = isItAction;
@@ -39,8 +40,16 @@ public class EventCard extends Card
         airlift = isAirlift;
 
     }
-    public EventCard()
+
+    //Copy constructor
+    public EventCard(EventCard otherCard)
     {
+        this.isAction = otherCard.isAction;
+        this.resilientPopulation = otherCard.resilientPopulation;
+        this.quietNight = otherCard.quietNight;
+        this.forecast= otherCard.forecast;
+        this.governmentGrant = otherCard.governmentGrant;
+        this.airlift = otherCard.airlift;
 
     }
 

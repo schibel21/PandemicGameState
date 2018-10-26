@@ -8,8 +8,12 @@ package com.example.sweet.pandemicgamestate;
 
 /************************************
  * GAME STATE VARIABLES
- *  -p1Cards: GeneralCards
- *  -p2Cards: GeneralCards
+ *  -p1Cards: ArrayList<PlayerCard>
+ *  -p2Cards: ArrayList<PlayerCard>
+ *  -playerDeck: ArrayList<PlayerCard>
+ *  -infectionDeck: ArrayList<InfectionCard>
+ *  -playerDiscardDeck: ArrayList<PlayerCard>
+ *  -infectionDiscardDeck: ArrayList<InfectionCard>
  *  -p1Pawn: Pawn
  *  -p2Pawn: Pawn
  *  -numPlayers: int
@@ -45,8 +49,10 @@ public class GameState {
      */
     private ArrayList<PlayerCard> p1Cards;
     private ArrayList<PlayerCard> p2Cards;
-    private Hashtable<Integer,PlayerCard> playerDeck = new Hashtable<>();
-    private Hashtable<Integer,InfectionCard> infectionDeck = new Hashtable<>();
+    private ArrayList<PlayerCard> playerDeck;
+    private ArrayList<InfectionCard> infectionDeck;
+    private ArrayList<PlayerCard> playerDiscardDeck;
+    private ArrayList<InfectionCard> infectionDiscardDeck;
     private Pawn p1Pawn;
     private Pawn p2Pawn;
     private int numPlayers;
@@ -56,17 +62,18 @@ public class GameState {
     private int actionsLeft;
     private int[] curedDiseases;
     private String playerCity;
+    private final int MAX_CARDS = 7;
+    private final int MAX_INFECTION_RATE = 4;
+    private PlayerInfo player;
 
 
+        //default constructor
     GameState() {
-        p1Cards = null;
-        p2Cards = null;
-        p1Pawn = null;
-        p2Pawn = null;
         numPlayers = 2;
         infectionRate = 2;
         outbreakNum = 0;
         curedDiseases = new int[] {0, 0, 0, 0}; //1 = cured, 2 = eradicated
+
 
 
     }
@@ -75,10 +82,22 @@ public class GameState {
     GameState(GameState otherState) {
         this.p1Cards = otherState.p1Cards;
             for(int i = 0; i<otherState.p1Cards.size(); i++){
-                this.p1Cards.add(otherState.p1Cards.get(i));
+                this.p1Cards.add(new PlayerCard(otherState.p1Cards.get(i)));
             }
         for(int i = 0; i<otherState.p2Cards.size(); i++){
-            this.p2Cards.add(otherState.p2Cards.get(i));
+            this.p2Cards.add(new PlayerCard(otherState.p2Cards.get(i)));
+        }
+        for(int i = 0; i<otherState.playerDeck.size(); i++){
+            this.playerDeck.add(new PlayerCard(otherState.playerDeck.get(i)));
+        }
+        for(int i = 0; i<otherState.infectionDeck.size(); i++){
+            this.infectionDeck.add(new InfectionCard(otherState.infectionDeck.get(i)));
+        }
+        for(int i = 0; i<otherState.playerDiscardDeck.size(); i++){
+            this.playerDiscardDeck.add(new PlayerCard(otherState.playerDiscardDeck.get(i)));
+        }
+        for(int i = 0; i<otherState.infectionDiscardDeck.size(); i++){
+            this.infectionDiscardDeck.add(new InfectionCard(otherState.infectionDiscardDeck.get(i)));
         }
         this.p1Pawn = otherState.p1Pawn;
         this.p2Pawn = otherState.p2Pawn;
@@ -93,7 +112,7 @@ public class GameState {
     }
 
 
-
+    //Moves player to a different city
     public boolean movePawn(PlayerInfo player, City city, City desiredCity) {
         if(player.getActionsLeft()<=0){
             return false;
@@ -110,15 +129,18 @@ public class GameState {
         return true;
     }
 
+    //adds card to player's hand
     public boolean drawPlayerCard( PlayerInfo player, int numCards) {
-        if(numCards>7){
+        if(numCards>MAX_CARDS){
             return false;
-
         }
+        player.addCardToPlayerHand(p1Cards.get(0));
         return true;
     }
 
     public boolean drawInfectionCard( PlayerInfo player, int infectionRate) {
+        this.infectionDeck.get(0);
+        this.infectionDeck.remove(0);
         return true;
     }
 
@@ -126,6 +148,7 @@ public class GameState {
         if(playerCards == null){
             return false;
         }
+        if(player.)
 
         return true;
     }
@@ -139,6 +162,7 @@ public class GameState {
         if(player.getActionsLeft()<=0){
             return false;
         }
+        player.setActionsLeft(player.getActionsLeft()-1);
         return true;
     }
 
@@ -148,7 +172,7 @@ public class GameState {
             return false;
         }
         city.removeDiseaseCube();
-        player.actionTaken();;
+        player.setActionsLeft(player.getActionsLeft()-1);
         return true;
     }
 
@@ -157,11 +181,16 @@ public class GameState {
         if(player.getActionsLeft()<=0){
             return false;
         }
+        player.setActionsLeft(player.getActionsLeft()-1);
         return true;
     }
 
     public boolean increaseInfectionRate( PlayerInfo player) {
-        return true;
+        if(getInfectionRate()<MAX_INFECTION_RATE) {
+            setInfectionRate(getInfectionRate() + 1);
+            return true;
+        }
+       return false;
     }
 
     public boolean infect(PlayerInfo player) {
@@ -182,6 +211,7 @@ public class GameState {
         if(player.getActionsLeft()<=0){
             return false;
         }
+        player.setActionsLeft(player.getActionsLeft()-1);
         return true;
     }
 
@@ -236,11 +266,11 @@ public int getNumPlayers() {
         return numPlayers;
     }
 
-    public PlayerCard getP1Cards() {
+    public ArrayList<PlayerCard> getP1Cards() {
         return p1Cards;
     }
 
-    public PlayerCard getP2Cards() {
+    public ArrayList<PlayerCard> getP2Cards() {
         return p2Cards;
     }
 
@@ -268,19 +298,39 @@ public int getNumPlayers() {
         return curedDiseases;
     }
 
+    public PlayerInfo getPlayer() {
+        return player;
+    }
+
     public void setNumPlayers(int numPlayers) {
         this.numPlayers = numPlayers;
     }
 
-    public void setP1Cards(PlayerCard p1Cards) {
+    public void setP1Cards(ArrayList<PlayerCard> p1Cards) {
         this.p1Cards = p1Cards;
+    }
+
+    public void setInfectionDeck(ArrayList<InfectionCard> infectionDeck) {
+        this.infectionDeck = infectionDeck;
+    }
+
+    public void setPlayerDeck(ArrayList<PlayerCard> playerDeck) {
+        this.playerDeck = playerDeck;
+    }
+
+    public void setInfectionDiscardDeck(ArrayList<InfectionCard> infectionDiscardDeck) {
+        this.infectionDiscardDeck = infectionDiscardDeck;
+    }
+
+    public void setPlayerDiscardDeck(ArrayList<PlayerCard> playerDiscardDeck) {
+        this.playerDiscardDeck = playerDiscardDeck;
     }
 
     public void setP1Pawn(Pawn p1Pawn) {
         this.p1Pawn = p1Pawn;
     }
 
-    public void setP2Cards(PlayerCard p2Cards) {
+    public void setP2Cards(ArrayList<PlayerCard> p2Cards) {
         this.p2Cards = p2Cards;
     }
 
@@ -298,5 +348,9 @@ public int getNumPlayers() {
 
     public void setOutbreakNum(int outbreakNum) {
         this.outbreakNum = outbreakNum;
+    }
+
+    public void setPlayer(PlayerInfo player) {
+        this.player = player;
     }
 }
