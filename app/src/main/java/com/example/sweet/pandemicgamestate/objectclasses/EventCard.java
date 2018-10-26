@@ -17,6 +17,7 @@ package com.example.sweet.pandemicgamestate.objectclasses;
 * Draw, Look at, and Rearrange the top 6 cards of the Infection deck Put them back on top.: forecast
  * Add 1 research station to any city (no city card needed): governmentGrant
 * Move any 1 pawn to any city: airlift
+ *
  ****************************************************/
 
 public class EventCard extends Card
